@@ -2,12 +2,12 @@
 
 float sdPlane(vec3 p)
 {
-	return p.y;
+    return p.y;
 }
 
 vec2 opU(vec2 d1, vec2 d2)
 {
-	return (d1.x<d2.x) ? d1 : d2;
+    return (d1.x<d2.x) ? d1 : d2;
 }
 
 vec2 map(vec3 p)
@@ -66,10 +66,10 @@ vec3 trace(vec3 p, vec3 ray)
 
 mat3 camera(vec3 ro, vec3 ta, float cr )
 {
-	vec3 cw = normalize(ta - ro);
-	vec3 cp = vec3(sin(cr), cos(cr),0.);
-	vec3 cu = normalize( cross(cw,cp) );
-	vec3 cv = normalize( cross(cu,cw) );
+    vec3 cw = normalize(ta - ro);
+    vec3 cp = vec3(sin(cr), cos(cr),0.);
+    vec3 cu = normalize( cross(cw,cp) );
+    vec3 cv = normalize( cross(cu,cw) );
     return mat3( cu, cv, cw );
 }
 
