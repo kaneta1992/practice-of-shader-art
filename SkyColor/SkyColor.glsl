@@ -43,7 +43,6 @@ vec3 materialize(vec3 p, vec3 ray, float depth, vec2 mat)
         col = vec3(max(0.5, checker)) * vec3(0.4,0.6,0.85) * 1.1;
     }
     float fo = 1.0-exp(-pow(0.002*depth,1.5) );
-    vec3 fco = 0.65*vec3(0.4,0.65,1.0);
     col = mix( col, sky, fo );
     return col;
 }
