@@ -16,19 +16,17 @@ vec2 map(vec3 p)
 }
 
 // iq's sky https://www.shadertoy.com/view/MdX3Rr
-vec3 sunDir = normalize(vec3(.2, .25, .5));
+vec3 sunDir = normalize(vec3(.3, .2, .5));
 vec3 skyColor(vec3 rd)
 {
     float sundot = clamp(dot(rd,sunDir),0.0,1.0);
     // sky		
-    vec3 col = vec3(0.2,0.5,0.85)*1.1 - rd.y*rd.y*0.5;
-    col = mix( col, 0.85*vec3(0.7,0.75,0.85), pow( 1.0-max(rd.y,0.0), 4.0 ) );
+    vec3 col = mix(vec3(0.2,0.5,0.85)*1.1, vec3(0.0,0.15,0.7), rd.y);
+    col = mix( col, 0.85*vec3(0.8,0.8,0.7), pow( 1.0-max(rd.y,0.0), 4.0 ) );
     // sun
     col += 0.25*vec3(1.0,0.7,0.4)*pow( sundot,5.0 );
     col += 0.25*vec3(1.0,0.8,0.6)*pow( sundot,64.0 );
     col += 0.2*vec3(1.0,0.8,0.6)*pow( sundot,512.0 );
-    // horizon
-    col = mix( col, 0.68*vec3(0.4,0.65,1.0), pow( 1.0-max(rd.y,0.0), 16.0 ) );
     return col;
 }
 
